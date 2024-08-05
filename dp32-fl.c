@@ -29,7 +29,7 @@ const FlashDevice_t FlashDevice = {
 	"DP32G030 Internal Flash",
 	1,
 	0x00000000,
-	0x0000F000,
+	0x00010000,
 	0x00000200,
 	0x00000000,
 	0xFF,
@@ -139,7 +139,7 @@ int EraseChip(void)
 {
 	uint16_t i;
 
-	for (i = 0; i < 0xF000; i += 512) {
+	for (i = 0; i < 0x10000; i += 512) {
 		int ret = EraseSector(i);
 
 		if (ret) {
