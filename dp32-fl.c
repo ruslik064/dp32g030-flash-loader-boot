@@ -139,7 +139,7 @@ int EraseChip(void)
 {
 	uint16_t i;
 
-	for (i = 0; i < 0xF000; i += 512) {
+	for (i = 0; i < 0x10000; i += 512) {
 		int ret = EraseSector(i);
 
 		if (ret) {
@@ -153,7 +153,7 @@ int EraseChip(void)
 int EraseSector(uint32_t SectorAddr)
 {
 
-	if (SectorAddr % 512 || SectorAddr >= 0xF000) {
+	if (SectorAddr % 512 || SectorAddr >= 0x10000) {
 		return 1;
 	}
 
