@@ -137,7 +137,7 @@ int UnInit(uint32_t Func)
 
 int EraseChip(void)
 {
-	uint16_t i;
+	uint32_t i;
 
 	for (i = 0; i < 0xFFFF; i += 512) {
 		int ret = EraseSector(i);
