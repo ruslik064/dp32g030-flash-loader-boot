@@ -117,12 +117,10 @@ int CheckBlank(uint32_t Addr, uint32_t NumBytes, uint8_t BlankValue) __attribute
 
 int Init(uint32_t Addr, uint32_t Freq, uint32_t Func)
 {
-	if (FLASH_MASK != 6) {
+	if (FLASH_MASK != 0) {
 		FLASH_MASK = 0;
 		WaitNotBusy();
-		FLASH_MASK = 6;
-		WaitNotBusy();
-		if (FLASH_MASK != 6) {
+		if (FLASH_MASK != 0) {
 			return 1;
 		}
 	}
