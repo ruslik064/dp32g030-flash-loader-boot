@@ -139,7 +139,7 @@ int EraseChip(void)
 {
 	uint32_t i;
 
-	for (i = 0; i < 0xFFFF; i += 512) {
+	for (i = 0; i < 0x10000; i += 512) {
 		int ret = EraseSector(i);
 
 		if (ret) {
@@ -153,7 +153,7 @@ int EraseChip(void)
 int EraseSector(uint32_t SectorAddr)
 {
 
-	if (SectorAddr % 512 || SectorAddr >= 0xFFFF) {
+	if (SectorAddr % 512 || SectorAddr >= 0x10000) {
 		return 1;
 	}
 
@@ -174,7 +174,7 @@ int EraseSector(uint32_t SectorAddr)
 
 int ProgramPage(uint32_t DestAddr, uint32_t NumBytes, const uint8_t *pBuffer)
 {
-	if (DestAddr % BLOCK_SIZE || DestAddr >= 0xFFFF || NumBytes % BLOCK_SIZE || NumBytes > 0xFFFF || (DestAddr + NumBytes) > 0xFFFF) {
+	if (DestAddr % BLOCK_SIZE || DestAddr >= 0x10000 || NumBytes % BLOCK_SIZE || NumBytes > 0x10000 || (DestAddr + NumBytes) > 0x10000) {
 		return 1;
 	}
 
