@@ -131,7 +131,13 @@ int Init(uint32_t Addr, uint32_t Freq, uint32_t Func)
 int UnInit(uint32_t Func)
 {
 	// restore the MCU
-
+                if (FLASH_MASK != 6) {
+		FLASH_MASK = 6;
+		WaitNotBusy();
+		if (FLASH_MASK != 6) {
+			return 1;
+		}
+	}
 	return 0;
 }
 
