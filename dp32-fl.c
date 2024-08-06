@@ -117,27 +117,29 @@ int CheckBlank(uint32_t Addr, uint32_t NumBytes, uint8_t BlankValue) __attribute
 
 int Init(uint32_t Addr, uint32_t Freq, uint32_t Func)
 {
-	if (FLASH_MASK != 0) {
+	// if (FLASH_MASK != 0) {
+	//	FLASH_MASK = 0;
+	//	WaitNotBusy();
+	//	if (FLASH_MASK != 0) {
+	//		return 1;
+	//	}
+	//}
+if (FLASH_MASK != 6) {
 		FLASH_MASK = 0;
 		WaitNotBusy();
-		if (FLASH_MASK != 0) {
-			return 1;
-		}
-	}
-
-	return 0;
-}
-
-int UnInit(uint32_t Func)
-{
-	// restore the MCU
-                if (FLASH_MASK != 6) {
 		FLASH_MASK = 6;
 		WaitNotBusy();
 		if (FLASH_MASK != 6) {
 			return 1;
 		}
 	}
+	return 0;
+}
+
+int UnInit(uint32_t Func)
+{
+	// restore the MCU
+                
 	return 0;
 }
 
