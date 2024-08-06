@@ -1,4 +1,4 @@
-# Flash Loader for Segger JLink software to support the DP32G030
+# Flash Loader for masking boot 4KB(UV-K5) for Segger JLink software to support the DP32G030 
 
 This flash loader supports flashing to the DP32G030 as used in the [UV-K5](https://github.com/DualTachyon/uv-k5-firmware) class of radio transceivers.
 
